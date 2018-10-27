@@ -18,6 +18,11 @@ from bottle import get, post, request,run, static_file,route,redirect
 def py_asciify(text):
     return unicodedata.normalize('NFKD', text.replace(u'\u0131', 'i').replace(u')', '\)').replace(u'(', '\(')).encode('ascii', 'ignore').lower().decode('utf8')
 
+if not os.path.exists("images"):
+    os.makedirs("images")
+
+if not os.path.exists("final.images"):
+    os.makedirs("final.images")
 
 # variables
 face_locations = []
@@ -312,6 +317,8 @@ def add_a_personn(url,name):
     g_dict[di] ={}
     g_dict[di]["name"] = name
     g_dict[di]["image_links"] = url
+
+
 
     try :
         imgresponse = requests.get(url, stream=True)
