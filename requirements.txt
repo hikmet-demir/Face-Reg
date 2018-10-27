@@ -1,0 +1,6 @@
+face_recognition
+opencv-python
+requests
+numpy
+beautifulsoup4
+bottle

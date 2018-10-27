@@ -371,7 +371,7 @@ if __name__ == '__main__':
     parser.add_argument("--download", "-d", help="Enter the Social Bankers URL")
     parser.add_argument("--FindURL","-f",  help="Enter the URL of image")
     parser.add_argument("--Images","-i",  help="fill downloaded images")
-    parser.add_argument("-Server","-ss", help = "Start the server, i mean bottle dude, gee relaxxxx")
+    parser.add_argument("-Server","-ss", help = "Start the server")
     args = parser.parse_args()
     print(args)
     if(args.download):
@@ -398,97 +398,3 @@ if __name__ == '__main__':
     if(args.Server):
         load_json()
         start_bottle()
-
-
-
-"""
-    @route('/')
-    def index():
-        return static_file("index.html", root='build')
-
-    @route('/static/<url:re:.+>')
-    def static(url):
-        print('popo')
-        return static_file(url, root='build/static')
-
-    @route('/<url:re:.+>')
-    def static(url):
-        return static_file(url, root='build')
-
-    @route('/eee')
-    def hi():
-        print("kickass")
-
-    @post('/')
-    def posting_url():
-        url = request.forms.get('url')
-        return bottle_query(url)
-"""
-
-
-"""
-def create_sub_famous_fix(url):
-    pagetemp = requests.get(url)
-    page = pagetemp.content
-  #  global soup
-    soup = BeautifulSoup(page,"html.parser")
-
-def get_names_f_f(soup):
-    a = soup.select(".txtc a img")
-    for i in a:
-        if "alt" in a[i].attrs:
-            if not a[i]["alt"] in g_dict:
-                g_dict[a[i]["alt"]] = {}
-                name = py_asciify(a[i]["alt"])
-                g_dict[a[i]["alt"]]["name"] = name
-
-def get_imglink_f_f(soup):
-    a = soup.select(".txtc a img")
-    for i in a:
-        if "src" in a[i].attrs:
-            if "alt" in a[i].attrs:
-                if a[i]["alt"] in g_dict:
-                    g_dict[a[i]["src"]]["image_link"] = a[i]["src"]
-
-def download_image_f_f(soup):
-    for i in g_dict.keys():
-        if "image_link" in i.attrs:
-            if not "image_name" in i.attrs:
-                g_dict[i]["image_name"] = name +".jpg"
-
-    for i in g_dict.keys():
-        if "image_name" in i.attrs:
-            try :
-                imgresponse = requests.get(g_dict[i]["image_link"], stream=True)
-                if not os.path.exists(os.path.join("images", g_dict[i]["image_name"])):
-                    with open(os.path.join("images", g_dict[i]["image_name"]), 'wb') as out_file:
-                        out_file.write(imgresponse.content)
-            except:
-                pass
-def fill_images_f_f():
-    i_dict = {}
-    for i in g_dict:
-        if "image_name" in g_dict[i]:
-            j = g_dict[i]["image_name"]:
-            try:
-                i_dict[i]= face_recognition.load_image_file(os.path.join("images",j))
-            except :
-                pass
-    print("fill_images done")
-    return i_dict
-
-def create_image_encodings_f_f(i_dict):
-    for i in i_dict.keys():
-        j = i_dict[i]:
-        f_l = face_recognition.face_locations(j)
-        if f_l:
-            if not "image_encodings" in g_dict[i].keys():
-                g_dict[i]["image_encodings"] = face_recognition.face_encodings(j,f_l)[0].tolist()
-
-        print(i)
-    print("create_image_encodings done")
-"""
-
-""" Create BeautifulSoup Variable and return it
-    Soup is the html parsed version of desired url page
-"""
