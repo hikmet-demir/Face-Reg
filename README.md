@@ -3,11 +3,11 @@ Face Recognition Application.
 
 This simple application can detect faces in the given photo and it can find the names of the people in the photo. For now, we trained it with turkish celebrities photos but you can easily train it with your own photo.
 
-# Prerequisities
+## Prerequisities
 
 - Python 3
 
-# Installing
+## Installing
 
 Ideally you want to create an virtualenv and run it there but this is not an obligotary.
 
@@ -16,7 +16,7 @@ Ideally you want to create an virtualenv and run it there but this is not an obl
 pip install -r requirements.txt
 ```
 
-# Using
+## Using
 
 You want to run it and see the result directly!
 Run it from console
